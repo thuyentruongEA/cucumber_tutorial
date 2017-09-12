@@ -1,0 +1,27 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 20
+  reconnect: true
+  connect_timeout: 2
+  keepalives_idle: 30
+  keepalives_interval: 10
+  keepalives_count: 2
+  checkout_timeout: 5
+  reaping_frequency: 10
+  username: eastagile
+  password: eastagile
+
+development:
+  <<: *default
+  database: cucumber_tutorial_development
+
+test:
+  <<: *default
+  database: cucumber_tutorial_test
+
+production:
+  <<: *default
+  database: cucumber_tutorial_production
+  username: cucumber_tutorial
+  password: <%= ENV['NVOI-PLATFORM_DATABASE_PASSWORD'] %>
