@@ -16,7 +16,7 @@ development:
   <<: *default
   database: cucumber_tutorial_development
 
-test:
+test: &test
   <<: *default
   database: cucumber_tutorial_test
 
@@ -25,3 +25,6 @@ production:
   database: cucumber_tutorial_production
   username: cucumber_tutorial
   password: <%= ENV['NVOI-PLATFORM_DATABASE_PASSWORD'] %>
+
+cucumber:
+  <<: *test
